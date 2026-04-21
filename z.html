@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit Semanal #3 — Brigadas Digitales Fajardo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --amarillo: #FFD600;
+      --amarillo-oscuro: #E6B800;
+      --azul: #003DA5;
+      --azul-claro: #1A5DC8;
+      --rojo: #CE1126;
+      --rojo-claro: #E8192E;
+      --negro: #0A0A0A;
+      --blanco: #FFFFFF;
+      --gris-claro: #F5F5F0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--amarillo);
+      color: var(--negro);
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--azul);
+      color: var(--blanco);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-stripe {
+      height: 8px;
+      background: linear-gradient(90deg, var(--amarillo) 33.3%, var(--azul) 33.3%, var(--azul) 66.6%, var(--rojo) 66.6%);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 28px 48px 24px;
+      gap: 20px;
+    }
+
+    .logo-area { display: flex; flex-direction: column; gap: 4px; }
+
+    .logo-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: var(--amarillo);
+      text-transform: uppercase;
+    }
+
+    .logo-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      line-height: 1;
+      letter-spacing: 2px;
+      color: var(--blanco);
+    }
+
+    .logo-title span { color: var(--amarillo); }
+
+    .logo-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+    }
+
+    .header-badge {
+      background: var(--amarillo);
+      color: var(--azul);
+      border-radius: 4px;
+      padding: 16px 22px;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .header-badge .kit-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      display: block;
+    }
+
+    .header-badge .kit-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ─── HERO SEMANA ─── */
+    .hero {
+      background: var(--amarillo);
+      padding: 40px 48px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 220px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 6px;
+      background: var(--rojo);
+    }
+
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding-bottom: 40px; }
+
+    .semana-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--azul);
+      color: var(--amarillo);
+      padding: 6px 14px;
+      border-radius: 2px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .semana-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--amarillo);
+      border-radius: 50%;
+      animation: blink 1.4s infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 76px;
+      line-height: 0.9;
+      color: var(--azul);
+      text-transform: uppercase;
+    }
+
+    .hero h1 .accent { color: var(--rojo); }
+
+    .hero-right {
+      background: var(--azul);
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      clip-path: polygon(24px 0, 100% 0, 100% 100%, 0 100%);
+      margin-left: -24px;
+    }
+
+    .slogan {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
+      color: var(--amarillo);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .fecha-zoom {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 1px;
+    }
+
+    .zoom-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      background: var(--amarillo);
+      color: var(--azul);
+      padding: 10px 18px;
+      border-radius: 3px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      width: fit-content;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .zoom-link:hover { background: #ffe033; transform: translateY(-2px); }
+
+    /* ─── SECTIONS WRAPPER ─── */
+    .sections { background: var(--gris-claro); }
+
+    /* ─── SECTION BLOCK ─── */
+    .section-block {
+      padding: 64px 48px;
+      border-bottom: 4px solid var(--amarillo);
+      position: relative;
+    }
+
+    .section-block:nth-child(even) { background: var(--blanco); }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .section-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px;
+      line-height: 1;
+      color: var(--amarillo);
+      -webkit-text-stroke: 3px var(--azul);
+      text-stroke: 3px var(--azul);
+      min-width: 70px;
+    }
+
+    .section-title-wrap { display: flex; flex-direction: column; }
+
+    .section-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--rojo);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      line-height: 1;
+      color: var(--azul);
+      letter-spacing: 1px;
+    }
+
+    /* ─── MENSAJE CENTRAL ─── */
+    .mensaje-central {
+      background: var(--azul);
+      color: var(--blanco);
+      border-left: 8px solid var(--amarillo);
+      padding: 28px 32px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .mensaje-central::before {
+      content: '"';
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      color: var(--amarillo);
+      opacity: 0.15;
+      position: absolute;
+      top: -20px; left: 16px;
+      line-height: 1;
+    }
+
+    .mensaje-central p {
+      font-size: 18px;
+      line-height: 1.7;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    .marcos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .marco-card {
+      background: var(--amarillo);
+      border-radius: 4px;
+      padding: 24px;
+      border-top: 5px solid var(--azul);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .marco-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,61,165,0.15); }
+
+    .marco-card:nth-child(2) { border-top-color: var(--rojo); }
+    .marco-card:nth-child(3) { border-top-color: var(--azul-claro); }
+
+    .marco-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--azul);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .marco-card p { font-size: 15px; line-height: 1.6; color: var(--negro); }
+
+    /* ─── COMPROMISOS ─── */
+    .compromisos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    .compromiso-card {
+      background: var(--azul);
+      color: var(--blanco);
+      border-radius: 6px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: background 0.2s, transform 0.2s;
+      border-bottom: 4px solid var(--amarillo);
+    }
+
+    .compromiso-card:hover { background: var(--azul-claro); transform: translateY(-4px); }
+
+    .compromiso-icon {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .compromiso-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: var(--amarillo);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .compromiso-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .compromiso-card p { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.8); }
+
+    /* ─── ACCIÓN COORDINADA ─── */
+    .accion-box {
+      background: var(--rojo);
+      color: var(--blanco);
+      border-radius: 6px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .accion-date {
+      background: var(--amarillo);
+      color: var(--azul);
+      text-align: center;
+      padding: 16px 20px;
+      border-radius: 4px;
+      min-width: 120px;
+    }
+
+    .accion-date .day {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      display: block;
+    }
+
+    .accion-date .month {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .accion-date .time {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .accion-content h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 34px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .accion-content p { font-size: 15px; line-height: 1.65; margin-bottom: 16px; }
+
+    .accion-steps { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .accion-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .accion-steps li .step-pill {
+      background: var(--amarillo);
+      color: var(--rojo);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 3px 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    /* ─── CONTENIDO SEMANAL ─── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0;
+      border-bottom: 2px solid var(--amarillo);
+      position: relative;
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-day {
+      background: var(--azul);
+      color: var(--blanco);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+    }
+
+    .timeline-day .dia {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--amarillo);
+      line-height: 1;
+    }
+
+    .timeline-day .fecha {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .timeline-day .mes {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+    }
+
+    .timeline-day .hora {
+      display: inline-block;
+      margin-top: 8px;
+      background: var(--rojo);
+      color: var(--blanco);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 2px;
+      letter-spacing: 1px;
+    }
+
+    .timeline-content {
+      padding: 28px 32px;
+      background: var(--blanco);
+    }
+
+    .timeline-item:nth-child(even) .timeline-content { background: var(--gris-claro); }
+
+    .timeline-content h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 4px;
+    }
+
+    .timeline-red-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--rojo);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .timeline-content p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 12px;
+    }
+    
+    .timeline-content a {
+      color: var(--azul);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    
+    .timeline-content a:hover {
+      color: var(--rojo);
+    }
+
+    .tag-redes {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--amarillo);
+      color: var(--azul);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      margin: 4px 4px 4px 0;
+      display: inline-flex;
+    }
+
+    .hashtag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+    .hashtag {
+      background: var(--azul);
+      color: var(--amarillo);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    .quote-box {
+      border-left: 5px solid var(--amarillo);
+      background: rgba(255,214,0,0.12);
+      padding: 14px 20px;
+      margin-top: 12px;
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--azul);
+    }
+
+    /* ─── PERMANENTE ─── */
+    .permanente-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+    .perm-card {
+      border-radius: 4px;
+      padding: 24px;
+      border: 2px solid var(--amarillo);
+      background: var(--blanco);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .perm-card:hover { border-color: var(--azul); transform: translateY(-2px); }
+
+    .perm-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+
+    .perm-card h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 6px;
+    }
+
+    .perm-card p { font-size: 13px; line-height: 1.6; color: #555; }
+    
+    .perm-card a {
+      color: var(--azul);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    
+    .perm-card a:hover {
+      color: var(--rojo);
+    }
+
+    /* ─── RECURSOS ─── */
+    .recursos-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .recurso-group { }
+
+    .recurso-group-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rojo);
+      border-bottom: 2px solid var(--amarillo);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    .recurso-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .recurso-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--negro);
+    }
+
+    .recurso-list li::before {
+      content: '';
+      width: 10px; height: 10px;
+      background: var(--amarillo);
+      border: 2px solid var(--azul);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    
+    .recurso-list li a {
+      color: var(--azul);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .recurso-list li a:hover {
+      color: var(--rojo);
+      text-decoration: underline;
+    }
+
+    /* ─── REPORTE ─── */
+    .reporte-cta {
+      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-claro) 100%);
+      color: var(--blanco);
+      padding: 64px 48px;
+      text-align: center;
+    }
+
+    .reporte-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      color: var(--amarillo);
+      margin-bottom: 12px;
+    }
+
+    .reporte-cta p {
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 28px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .btn-reporte {
+      display: inline-block;
+      background: var(--amarillo);
+      color: var(--azul);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      padding: 16px 40px;
+      border-radius: 4px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+    }
+
+    .btn-reporte:hover { background: #ffe033; transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--negro);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px 48px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .footer-stripe {
+      height: 6px;
+      background: linear-gradient(90deg, var(--amarillo) 33.3%, var(--azul) 33.3%, var(--azul) 66.6%, var(--rojo) 66.6%);
+    }
+
+    footer strong { color: var(--amarillo); }
+
+    /* ─── NAV LATERAL ─── */
+    .nav-lateral {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .nav-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--azul);
+      border: 2px solid var(--amarillo);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      opacity: 0.6;
+      text-decoration: none;
+    }
+
+    .nav-dot:hover { background: var(--rojo); transform: scale(1.3); opacity: 1; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .header-inner { padding: 20px 24px; }
+      .logo-title { font-size: 36px; }
+      .hero { grid-template-columns: 1fr; padding: 32px 24px 0; }
+      .hero-right { clip-path: none; margin-left: 0; }
+      .hero h1 { font-size: 52px; }
+      .section-block { padding: 40px 24px; }
+      .marcos-grid { grid-template-columns: 1fr; }
+      .compromisos-grid { grid-template-columns: repeat(2, 1fr); }
+      .timeline-item { grid-template-columns: 120px 1fr; }
+      .permanente-grid { grid-template-columns: 1fr; }
+      .recursos-cols { grid-template-columns: 1fr; }
+      .nav-lateral { display: none; }
+      .accion-box { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav-lateral">
+  <a class="nav-dot" href="#mensaje" title="Mensaje"></a>
+  <a class="nav-dot" href="#compromisos" title="Compromisos"></a>
+  <a class="nav-dot" href="#accion" title="Acción"></a>
+  <a class="nav-dot" href="#contenido" title="Contenido"></a>
+  <a class="nav-dot" href="#permanente" title="Permanente"></a>
+  <a class="nav-dot" href="#recursos" title="Recursos"></a>
+  <a class="nav-dot" href="#reporte" title="Reporte"></a>
+</nav>
+
+<header>
+  <div class="header-stripe"></div>
+  <div class="header-inner">
+    <div class="logo-area">
+      <span class="logo-brand">Brigadas Digitales · Campaña</span>
+      <div class="logo-title">FAJARDO <span>PRESIDENTE</span></div>
+      <span class="logo-sub">Edna Vicepresidenta · 2026</span>
+    </div>
+    <div class="header-badge">
+      <span class="kit-num">#3</span>
+      <span class="kit-label">Kit Semanal</span>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="semana-badge">Semana activa</div>
+    <h1>20 AL 26<br>DE ABRIL<br><span class="accent">2026</span></h1>
+  </div>
+  <div class="hero-right">
+    <div class="slogan">CAMBIO.<br>SERIO.<br>SEGURO.</div>
+    <p class="fecha-zoom">📅 Socialización todos los lunes — 6:00 pm</p>
+    <a href="https://us06web.zoom.us/j/88432163547" class="zoom-link" target="_blank">
+      🎥 Unirse al Zoom · Passcode: 424086
+    </a>
+  </div>
+</div>
+
+<div class="sections">
+
+  <section class="section-block" id="mensaje">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <span class="section-tag">Esta semana</span>
+        <h2 class="section-title">Mensaje de la Semana</h2>
+      </div>
+    </div>
+
+    <div class="mensaje-central">
+      <p>Decir la verdad y actuar en consecuencia. El contraste es claro. Cepeda calla y otorga. Abelardo es lo que parece. Paloma evade y se rodea de corruptos. Fajardo habla de frente, sin ambigüedades, y pone sobre la mesa lo que los otros prefieren evitar. Porque la lucha contra la corrupción no puede ser selectiva: no se denuncia a unos mientras se protege a otros. Se enfrenta completa o no se enfrenta.</p>
+    </div>
+
+    <div class="marcos-grid">
+      <div class="marco-card">
+        <div class="marco-num">1</div>
+        <p><strong>La corrupción es el eje, no un tema más.</strong> En Colombia no falta plata — se la están robando. Fajardo lo pone en el centro del debate y habla de lo que otros no quieren o no pueden hablar.</p>
+      </div>
+      <div class="marco-card">
+        <div class="marco-num">2</div>
+        <p><strong>La escoba: primero limpiamos, luego construimos.</strong> No es solo un símbolo visual: es el poder de los que no tienen poder. Cada peso recuperado de la corrupción se convierte en salud, educación y oportunidades reales.</p>
+      </div>
+      <div class="marco-card">
+        <div class="marco-num">3</div>
+        <p><strong>La Constitución no es un papel más.</strong> Es el acuerdo que protege los derechos de todos y pone límites al poder. Hoy está en riesgo. Defenderla es una causa ciudadana: proteger lo que nos protege.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="compromisos">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title-wrap">
+        <span class="section-tag">Obligatorio</span>
+        <h2 class="section-title">Compromisos Mínimos</h2>
+      </div>
+    </div>
+
+    <div class="compromisos-grid">
+      <div class="compromiso-card">
+        <span class="compromiso-icon">🤝</span>
+        <span class="compromiso-num">01</span>
+        <h3>Encuentro Grupal</h3>
+        <p>Reunión semanal de 30 min. El Dinamizador convoca y registra asistencia.</p>
+      </div>
+      <div class="compromiso-card">
+        <span class="compromiso-icon">📱</span>
+        <span class="compromiso-num">02</span>
+        <h3>Publicaciones</h3>
+        <p>Mínimo 2 publicaciones por brigadista en la semana usando el material del Kit.</p>
+      </div>
+      <div class="compromiso-card">
+        <span class="compromiso-icon">⚡</span>
+        <span class="compromiso-num">03</span>
+        <h3>Acción Coordinada</h3>
+        <p>Participar en simultánea con todas las brigadas del país.</p>
+      </div>
+      <div class="compromiso-card">
+        <span class="compromiso-icon">🔴</span>
+        <span class="compromiso-num">04</span>
+        <h3>Activismo en Vivo</h3>
+        <p>Transmitir en vivo en redes sociales los mensajes de la campaña.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="accion">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title-wrap">
+        <span class="section-tag">Todos juntos</span>
+        <h2 class="section-title">Acción Coordinada</h2>
+      </div>
+    </div>
+
+    <div class="accion-box">
+      <div class="accion-date">
+        <span class="day">20</span>
+        <span class="month">Abril</span>
+        <span class="time">7:30 PM</span>
+      </div>
+      <div class="accion-content">
+        <h3>Space en X sobre Salud con Pacientes</h3>
+        <p>Entramos en un momento clave para amplificar las propuestas. Este lunes acompañamos el Space en X sobre salud y ayudamos a que más personas se conecten y escuchen.</p>
+        <ul class="accion-steps">
+          <li>
+            <span class="step-pill">Convoca</span>
+            Comparte masivamente la pieza del Space en tus redes sociales y grupos (WhatsApp, Telegram, etc.)
+          </li>
+          <li>
+            <span class="step-pill">Convence</span>
+            Únete al Space y escúchalo con otras personas. Conversa, responde preguntas y explica por qué apoyas las propuestas de salud de Fajardo.
+          </li>
+          <li>
+            <span class="step-pill">Publica</span>
+            Participa en X durante y después del Space con tus ideas usando <strong>#FajardoPresidente</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="contenido">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title-wrap">
+        <span class="section-tag">Plan de acción</span>
+        <h2 class="section-title">Contenido de la Semana</h2>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-day">
+          <span class="dia">LUNES</span>
+          <span class="fecha">20</span>
+          <span class="mes">Abril</span>
+          <span class="hora">12pm – 6pm</span>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-red-tag">📹 Todas tus redes sociales</span>
+          <h3>Defiende la Constitución en Video</h3>
+          <p>Fajardo y Edna Bonilla inscribieron el Comité Promotor del Referendo para la Protección de la Constitución. Graba un video (10–15 seg) contando por qué es importante defenderla.</p>
+          <div class="quote-box">
+            "La Constitución no es un papel: es lo que protege nuestros derechos y pone límites al poder. Hoy está en riesgo y depende de todos defenderla."
+          </div>
+          <div class="hashtag-list">
+            <span class="hashtag">#FajardoPresidente</span>
+            <span class="hashtag">#EdnaVicepresidenta</span>
+            <span class="hashtag">#BrigadasFajardo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-day">
+          <span class="dia">MARTES</span>
+          <span class="fecha">21</span>
+          <span class="mes">Abril</span>
+          <span class="hora">Todo el día</span>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-red-tag">📲 WhatsApp</span>
+          <h3>Haz Crecer tu Brigada</h3>
+          <p>Las brigadas son de máximo 12 personas. Si la tuya no está completa, ayúdanos a que más se unan hoy mismo. Invita a alguien que quiera liderar su propia brigada.</p>
+          <p>Escríbenos al WhatsApp: <strong>320 834 9958</strong></p>
+          <br/>
+          <span class="timeline-red-tag">🖼️ Todas las redes</span>
+          <h3>Cambia tu Foto de Perfil</h3>
+          <p>Actualiza tu foto en WhatsApp y demás redes por una de apoyo a la campaña. <a href="https://adelante-con-fajardo.github.io/marco/" target="_blank">¡Genera tu foto aquí!</a></p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-day">
+          <span class="dia">MIÉRC.</span>
+          <span class="fecha">23</span>
+          <span class="mes">Abril</span>
+          <span class="hora">Todo el día</span>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-red-tag">📸 Instagram</span>
+          <h3>Ponte la Camiseta</h3>
+          <p>Sal a la calle, ve a trabajar o estudiar con la camiseta de la campaña y demuestra que somos una fuerza imparable. Tómate una selfie y súbela a tus historias de Instagram.</p>
+          <div class="hashtag-list">
+            <span class="hashtag">@sergiofajardovalderrama</span>
+            <span class="hashtag">@Ednacbonillaseba</span>
+            <span class="hashtag">#BrigadasFajardo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-day">
+          <span class="dia">JUEVES</span>
+          <span class="fecha">24</span>
+          <span class="mes">Abril</span>
+          <span class="hora">7:00am</span>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-red-tag">🎓 Todas las redes</span>
+          <h3>Lanzamiento Propuesta Educación — Manizales</h3>
+          <p>Acompañamos el lanzamiento de la propuesta educativa de Fajardo con una activación digital masiva. Publica durante el evento usando la batería de mensajes, comparte frases y momentos clave.</p>
+          <div class="hashtag-list">
+            <span class="hashtag">#FajardoPresidente</span>
+            <span class="hashtag">#EdnaVicepresidenta</span>
+            <span class="hashtag">#BrigadasFajardo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-day">
+          <span class="dia">VIERNES</span>
+          <span class="fecha">25</span>
+          <span class="mes">Abril</span>
+          <span class="hora">8am – 12m</span>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-red-tag">🧹 X (Twitter)</span>
+          <h3>Twitteratón: Hagamos Tendencia</h3>
+          <p>Vamos a posicionar la conversación sobre la lucha contra la corrupción. Usa este prompt en ChatGPT para crear tu hilo:</p>
+          <div class="quote-box">
+            "Ayúdame a escribir un hilo de X sobre por qué Colombia necesita barrer la corrupción, usando la idea de la escoba como símbolo ciudadano. Hazlo claro, directo y con tono esperanzador."
+          </div>
+          <div class="hashtag-list">
+            <span class="hashtag">@sergio_fajardo</span>
+            <span class="hashtag">@EdnaBonillaSeba</span>
+            <span class="hashtag">#FajardoPresidente</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-day">
+          <span class="dia">VIERNES</span>
+          <span class="fecha">25</span>
+          <span class="mes">Abril</span>
+          <span class="hora">1:00 pm</span>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-red-tag">📺 Todas las redes · RCN TV</span>
+          <h3>Congreso Asofondos 2026</h3>
+          <p>Nos conectamos a la transmisión en vivo por RCN TV para escuchar la participación de Fajardo. Comenta en tiempo real, publica usando el hashtag e invita a más personas a verla.</p>
+          <div class="hashtag-list">
+            <span class="hashtag">#FajardoPresidente</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-day">
+          <span class="dia">SÁBADO</span>
+          <span class="fecha">26</span>
+          <span class="mes">Abril</span>
+          <span class="hora">8am – 12m</span>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-red-tag">📶 X e Instagram</span>
+          <h3>Activa tu WiFi por el CAMBIO.SERIO.SEGURO.</h3>
+          <p>La invitación es simple y poderosa: cambia el nombre de tu red WiFi a <strong>Fajardo Presidente</strong>, tómale una foto de cómo aparece en tu celular y publícala.</p>
+          <p style="color: var(--rojo); font-weight: 600;">💡 Opcional: cambia también la clave por un mensaje creativo 😉</p>
+          <div class="hashtag-list">
+            <span class="hashtag">#FajardoPresidente</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-block" id="permanente">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title-wrap">
+        <span class="section-tag">Siempre activo</span>
+        <h2 class="section-title">Otras Cosas que Puedes Hacer</h2>
+      </div>
+    </div>
+
+    <div class="permanente-grid">
+      <div class="perm-card">
+        <span class="perm-icon">✍️</span>
+        <h4>Hazlo Visible en lo Cotidiano</h4>
+        <p>Escribe #FajardoPresidente en un papel o ponlo como fondo de pantalla. Déjalo visible en tu entorno, tómale una foto y compártela.</p>
+      </div>
+      <div class="perm-card">
+        <span class="perm-icon">🖼️</span>
+        <h4>Historias Diarias</h4>
+        <p>Sube a diario una imagen de la campaña a tus estados de WhatsApp e historias de redes sociales.</p>
+      </div>
+      <div class="perm-card">
+        <span class="perm-icon">🗳️</span>
+        <h4>Pedagogía Digital del Voto</h4>
+        <p><a href="https://adelante-con-fajardo.github.io/vota_por_fajardo/" target="_blank">Usa la herramienta desarrollada por voluntarios para hacer pedagogía digital del voto y compartirla con tus contactos.</a></p>
+      </div>
+      <div class="perm-card">
+        <span class="perm-icon">💛</span>
+        <h4>Invita a Donar</h4>
+        <p>Comparte el link de donación con tu red. Cada aporte cuenta para sostener la campaña del cambio serio y seguro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="recursos">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title-wrap">
+        <span class="section-tag">Material disponible</span>
+        <h2 class="section-title">Elementos Básicos</h2>
+      </div>
+    </div>
+
+    <div class="recursos-cols">
+      <div class="recurso-group">
+        <div class="recurso-group-title">🎨 Identidad Visual</div>
+        <ul class="recurso-list">
+          <li><a href="#">Manual de Marca y Logos</a></li>
+          <li><a href="#">KIT Gráfico</a></li>
+          <li><a href="#">Diseños para impresión por cuenta propia</a></li>
+        </ul>
+      </div>
+      <div class="recurso-group">
+        <div class="recurso-group-title">📋 Narrativa y Defensa</div>
+        <ul class="recurso-list">
+          <li><a href="#">Argumentario</a></li>
+          <li><a href="#">Decálogo Anticorrupción</a></li>
+          <li><a href="#">Plan de Gobierno</a></li>
+          <li><a href="#">Columnas y Artículos</a></li>
+        </ul>
+      </div>
+      <div class="recurso-group">
+        <div class="recurso-group-title">🎵 Multimedia</div>
+        <ul class="recurso-list">
+          <li><a href="#">Canciones "Barre la Corrupción"</a></li>
+          <li><a href="#">Guía de grabación</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section class="reporte-cta" id="reporte">
+  <h2>📊 Reporte Semanal</h2>
+  <p>Al finalizar las actividades de la semana, diligencia y envía el reporte para que el equipo coordinador pueda revisarlo y darle un incentivo a las brigadas con mejor desempeño.</p>
+  <a href="#" class="btn-reporte">Enviar Reporte Semanal →</a>
+</section>
+
+<div class="footer-stripe"></div>
+<footer>
+  <p><strong>Brigadas Digitales · Campaña Fajardo Presidente — Edna Vicepresidenta 2026</strong></p>
+  <p style="margin-top:6px;">Kit Semanal #3 · Semana del 20 al 26 de abril de 2026</p>
+</footer>
+
+</body>
+</html>
